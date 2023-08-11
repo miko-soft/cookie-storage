@@ -1,0 +1,29 @@
+{
+  "name": "cookie-storage",
+  "version": "1.0.0",
+  "title": "Cookie Storage",
+  "description": "Library which helps with cookie, local and session storage management in the browser environment.",
+  "keywords": [
+    "cookie",
+    "local storage",
+    "session storage",
+    "browser"
+  ],
+  "author": "Mikosoft",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "inst": "rm -rf node_modules && rm package-lock.json && npm install",
+    "dev": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:miko-soft/cookie-storage.git"
+  },
+  "devDependencies": {
+    "esbuild-loader": "^2.19.0",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
