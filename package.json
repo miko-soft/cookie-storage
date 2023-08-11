@@ -1,5 +1,5 @@
 {
-  "name": "cookie-storage",
+  "name": "@mikosoft/cookie-storage",
   "version": "1.0.0",
   "title": "Cookie Storage",
   "description": "Library which helps with cookie, local and session storage management in the browser environment.",
@@ -25,5 +25,8 @@
     "esbuild-loader": "^2.19.0",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
