@@ -10,5 +10,4 @@ if (typeof window !== 'undefined') {
   if (!window.mikosoft) { window.mikosoft = {}; }
   window.mikosoft.browserStorage = new BrowserStorage();
   window.mikosoft.browserCookie = new BrowserCookie();
-  console.log('window.mikosoft', window.mikosoft);
 }
