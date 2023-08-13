@@ -1,6 +1,6 @@
 {
   "name": "@mikosoft/cookie-storage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "Cookie Storage",
   "description": "Library which helps with cookie, local and session storage management in the browser environment.",
   "keywords": [
