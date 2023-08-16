@@ -14,26 +14,11 @@ class BrowserCookie {
    * @param {CookieOpts} cookieOpts - cookie options
    */
   constructor(cookieOpts) {
+    if (!cookieOpts) { throw new Error('Cookie options are not defined.'); }
     if (!document) { throw new Error('The document is not available.'); }
     this.cookieOpts = cookieOpts;
   }
 
-
-  /**
-   * CookieOpts {
-   *  domain?: string;
-   *  path?: string;
-   *  expires?: number | Date; // number of hours or exact date
-   *  secure?: boolean;
-   *  httpOnly?: boolean;
-   *  sameSite?: string; // 'strict' for GET and POST, 'lax' only for POST
-   * }
-   * @param {object} cookieOpts - cookie options
-   * @returns {void}
-   */
-  setOptions(cookieOpts = {}) {
-    this.cookieOpts = cookieOpts;
-  }
 
 
   /**

@@ -42,7 +42,7 @@ const main = async () => {
 
   const { cookies, localStorage } = await page.evaluate(() => {
     // cookies
-    const browserCookie = window.mikosoft.browserCookie;
+    const BrowserCookie = window.mikosoft.BrowserCookie;
     const cookieOpts = {
       domain: 'adsuu.com',
       path: '/',
@@ -51,14 +51,13 @@ const main = async () => {
       httpOnly: false,
       sameSite: 'strict' // 'strict' for GET and POST, 'lax' only for POST
     };
-    browserCookie.setOptions(cookieOpts);
+    const browserCookie = new BrowserCookie(cookieOpts);
     const cookies = browserCookie.getAll();
 
     // local storage
-    const browserStorage = window.mikosoft.browserStorage;
-    console.log(window.mikosoft);
+    const BrowserStorage = window.mikosoft.BrowserStorage;
     const storageOpts = { storageType: 'local' };
-    browserStorage.setOptions(storageOpts);
+    const browserStorage = new BrowserStorage(storageOpts);
     const localStorage = browserStorage.getAll();
 
     return { cookies, localStorage };

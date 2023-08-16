@@ -25,8 +25,8 @@ or
 <script src="node_modules/cookie-storage/build/cookie-storage.min.js">
 
 JS
-const {browserCookie, browserStorage} = window.mikosoft;
-const browserCookie.setOptions(cookieOpts);
+const {BrowserCookie, BrowserStorage} = window.mikosoft;
+const browserCookie = new BrowserCookie(cookieOpts);
 const cookies = browserCookie.getAll();
 ```
 
@@ -40,7 +40,7 @@ await page.addScriptTag({ path: 'node_modules/cookie-storage/build/cookie-storag
 
 const {cookies, localStorage} = await page.evaluate(() => {
   // cookies
-  const browserCookie = window.mikosoft.browserCookie;
+  const BrowserCookie = window.mikosoft.BrowserCookie;
   const cookieOpts = {
     domain: 'adsuu.com',
     path: '/',
@@ -49,13 +49,13 @@ const {cookies, localStorage} = await page.evaluate(() => {
     httpOnly: false,
     sameSite: 'strict' // 'strict' for GET and POST, 'lax' only for POST
   };
-  browserCookie.setOptions(cookieOpts);
+  const browserCookie = new BrowserCookie(cookieOpts);
   const cookies = browserCookie.getAll();
 
   // local storage
-  const browserStorage = window.mikosoft.browserStorage;
+  const BrowserStorage = window.mikosoft.BrowserStorage;
   const storageOpts = { storageType: 'local'};
-  browserStorage.setOptions(storageOpts);
+  const browserStorage = new BrowserStorage(storageOpts);
   const localStorage = browserStorage.getAll();
 
   return {cookies, localStorage}
@@ -82,8 +82,6 @@ const browserStorage = new BrowserStorage(storageOpts);
 ## BrowserCookie API
 
 #### constructor(cookieOpts) :void
-
-#### setOptions(cookieOpts = {}) :void
 ```js
 interface CookieOpts {
   domain?: string;
@@ -93,8 +91,6 @@ interface CookieOpts {
   httpOnly?: boolean;
   sameSite?: string; // 'strict' for GET and POST, 'lax' only for POST
 }
-
-setOptions(cookieOpts:CookieOpts)
 ```
 
 
@@ -133,14 +129,10 @@ Check if cookie exists.
 ## BrowserStorage API
 
 #### constructor(storageOpts) :void
-
-#### setOptions(storageOpts = {}) :void
 ```js
 interface StorageOpts {
   storageType: 'local'|'session'  // default is local what means localStorage
 }
-
-setOptions(storageOpts:StorageOpts)
 ```
 
 

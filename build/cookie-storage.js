@@ -21,26 +21,11 @@ class BrowserCookie {
    * @param {CookieOpts} cookieOpts - cookie options
    */
   constructor(cookieOpts) {
+    if (!cookieOpts) { throw new Error('Cookie options are not defined.'); }
     if (!document) { throw new Error('The document is not available.'); }
     this.cookieOpts = cookieOpts;
   }
 
-
-  /**
-   * CookieOpts {
-   *  domain?: string;
-   *  path?: string;
-   *  expires?: number | Date; // number of hours or exact date
-   *  secure?: boolean;
-   *  httpOnly?: boolean;
-   *  sameSite?: string; // 'strict' for GET and POST, 'lax' only for POST
-   * }
-   * @param {object} cookieOpts - cookie options
-   * @returns {void}
-   */
-  setOptions(cookieOpts = {}) {
-    this.cookieOpts = cookieOpts;
-  }
 
 
   /**
@@ -361,20 +346,9 @@ class BrowserStorage {
    * @param {StorageOpts} storageOpts - {storageType: 'local'|'session'}
    */
   constructor(storageOpts) {
+    if (!storageOpts) { throw new Error('Storage options are not defined.'); }
     if (!window) { throw new Error('The window is not available.'); }
-    this.setOptions(storageOpts);
-  }
-
-
-  /**
-   * StorageOpts {
-   *   storageType: 'local'|'session'  // default is local what means localStorage
-   * }
-   * @param {object} storageOpts - cookie options
-   * @returns {void}
-   */
-  setOptions(storageOpts = {}) {
-    this.storageopts = storageOpts;
+    this.storageOpts = storageOpts;
     this.storage = storageOpts.storageType === 'session' ? window.sessionStorage : window.localStorage;
   }
 
@@ -535,12 +509,10 @@ class BrowserStorage {
 
 
 // window
-console.log(typeof window);
 if (typeof window !== 'undefined') {
   if (!window.mikosoft) { window.mikosoft = {}; }
-  window.mikosoft.browserStorage = new BrowserStorage_0();
-  window.mikosoft.browserCookie = new BrowserCookie_0();
-  console.log('window.mikosoft', window.mikosoft);
+  window.mikosoft.BrowserCookie = BrowserCookie_0;
+  window.mikosoft.BrowserStorage = BrowserStorage_0;
 }
 
 /******/ })()

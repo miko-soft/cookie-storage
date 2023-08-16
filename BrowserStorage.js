@@ -10,20 +10,9 @@ class BrowserStorage {
    * @param {StorageOpts} storageOpts - {storageType: 'local'|'session'}
    */
   constructor(storageOpts) {
+    if (!storageOpts) { throw new Error('Storage options are not defined.'); }
     if (!window) { throw new Error('The window is not available.'); }
-    this.setOptions(storageOpts);
-  }
-
-
-  /**
-   * StorageOpts {
-   *   storageType: 'local'|'session'  // default is local what means localStorage
-   * }
-   * @param {object} storageOpts - cookie options
-   * @returns {void}
-   */
-  setOptions(storageOpts = {}) {
-    this.storageopts = storageOpts;
+    this.storageOpts = storageOpts;
     this.storage = storageOpts.storageType === 'session' ? window.sessionStorage : window.localStorage;
   }
 

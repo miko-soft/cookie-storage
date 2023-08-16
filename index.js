@@ -8,6 +8,6 @@ export { BrowserCookie, BrowserStorage };
 // window
 if (typeof window !== 'undefined') {
   if (!window.mikosoft) { window.mikosoft = {}; }
-  window.mikosoft.browserStorage = new BrowserStorage();
-  window.mikosoft.browserCookie = new BrowserCookie();
+  window.mikosoft.BrowserCookie = BrowserCookie;
+  window.mikosoft.BrowserStorage = BrowserStorage;
 }
