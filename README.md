@@ -4,7 +4,7 @@
 
 ## Installation
 ```bash
-$ npm install --save cookie-storage
+$ npm install --save @mikosoft/cookie-storage
 ```
 
 ## Development
